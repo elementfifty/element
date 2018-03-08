@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<style>
+
+body {
+	
+	background-color: black;
+	background-attachment: fixed;
+	color: #ffffff;
+}
+
+.box {
+	background: rgba(101, 101, 101, 0.7); 
+	margin: auto; 
+	padding: 12px;
+	padding-top: 50px;
+	height: 100px;
+	width: 40%;
+}
+}
+
+.lightbox {
+	zoom: 1.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 10, 10, 0.8);
+	text-align: center;
+	margin: auto;
+	
+}
+
+div.horizontal {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+div.vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+::-moz-placeholder {  
+   color: #955;
+   text-align: center;
+}
+
+:-ms-input-placeholder {  
+   color: #955;
+   text-align: center;
+}
+a {
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+
+</style>
+
+<body>
+
+<script type="text/javascript">
+
+if (screen.width <= 699) {
+
+document.location = "mobile.html";
+
+}
+
+</script>
+	<div style="float: left;">
+		<h1>
+			<a href="http://oscarbyles.x10host.com/"> < Back (navigation) </a>
+			<br>
+			<br>
+			
+		</h1>
+	</div>
+	<div>
+		<h1 style="text-align: center;">Clothing, Accessories, and more</h1>
+	</div>
+	<div id="loginbox" class="lightbox" >
+		<div class="horizontal">
+			<div class="vertical">
+				<div class="box">				
+					<input style="margin: 8px; text-align: center; width: 95%; color: black" id="password" type="username" placeholder="Site?" /> <br />
+					<p id="wrongPassword" style="display: none">Doesn't exist</p>
+				</div>
+				<div style="padding: 0; text-align: center;">
+					<h2>Shopify embeded</h2>
+					<p>"cart" - shopping cart</p>
+					<p>"details" - deatails of the product</p>
+					<p>"buynow" - buy the product now</p>
+					<h2>Links</h2>
+					<p>"shopify1" - my first shopify test (oscabyles1)</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+					<p>Coming soon</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	 
+
+	 <script type="text/javascript" src="https://cdn.rawgit.com/chrisveness/crypto/master/sha1.js"></script>
+
+	<script type="text/javascript">
+	"use strict";
+
+
+	function loadPage(pwd) {
+		
+		var hash= pwd;
+		var url= hash + "/index.html";
+			
+		$.ajax({
+			url : url,
+			dataType : "html",
+			success : function(data) {
+
+				window.location= url;
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+			
+
+				parent.location.hash= hash;
+
+				//$("#wrongPassword").show();
+				$("#password").attr("placeholder","wrong password");
+				$("#password").val("");
+			}
+		});
+	}
+
+	 
+	$("#loginbutton").on("click", function() {
+		loadPage($("#password").val());
+	});
+	$("#password").keypress(function(e) {
+		if (e.which == 13) {
+			
+			loadPage($("#password").val());
+		}
+	});
+	$("#password").focus();
+		
+	</script>
+
+</body>
+</html>
